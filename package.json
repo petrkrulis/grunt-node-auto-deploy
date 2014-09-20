@@ -1,0 +1,54 @@
+{
+  "name": "grunt-node-auto-deploy",
+  "description": "Automatic deployment of node apps via grunt to nginx-upstart server.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/petrkrulis.cz/grunt-node-auto-deploy",
+  "author": {
+    "name": "Petr Krulis",
+    "email": "hello@petrkrulis.cz",
+    "url": "petrkrulis.cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/petrkrulis.cz/grunt-node-auto-deploy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/petrkrulis.cz/grunt-node-auto-deploy/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/petrkrulis.cz/grunt-node-auto-deploy/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5",
+  },
+  "dependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5",
+  },
+  "keywords": [
+    "gruntplugin",
+    "node",
+    "deploy",
+    "nginx",
+    "upstart",
+    "auto deploy",
+    "virtual host"
+  ]
+}
