@@ -32,20 +32,16 @@ module.exports = function(grunt) {
     node_auto_deploy: {
       default_options: {
         options: {
-        },
-        files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
+          url: 'test.test',
+          command: 'node server.js',
+          port: '8081',
+          path: '/var/www/sites',
+          nginx: '/etc/nginx/sites-enabled',
+          git: 'https://petrkrulis@bitbucket.org/petrkrulis/deploy-test.git',
+          branch: 'master',
+          ssh: 'root@nodejs.droplet'
         }
       },
-      custom_options: {
-        options: {
-          separator: ': ',
-          punctuation: ' !!!'
-        },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
-      }
     },
 
     // Unit tests.
@@ -65,7 +61,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'node_auto_deploy', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'node_auto_deploy']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);

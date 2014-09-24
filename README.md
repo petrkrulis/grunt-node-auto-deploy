@@ -2,6 +2,12 @@
 
 > Automatic deployment of your node apps via grunt to nginx-upstart server.
 
+### About
+It's based on node-deploy package. I rewrote it to use grunt. There is also no need to run init before first deployment. And upstart script/ngninx conf file don't need to be a part of git repository since they are created in ssh session. 
+
+### Dependencies
+This grunt task requires you to have linux with upstart (ubuntu tested) server running nginx, nodejs, npm and git.
+
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
 
@@ -26,28 +32,60 @@ In your project's Gruntfile, add a section named `node_auto_deploy` to the data 
 grunt.initConfig({
   node_auto_deploy: {
     options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
+      url: 'petrkrulis.cz',
+      command: 'node server.js',
+      port: '8081',
+      path: '/var/www/sites',
+      nginx: '/etc/nginx/sites-enabled',
+      git: 'git://github.com/petrkrulis.cz/grunt-node-auto-deploy.git',
+      branch: 'master',
+      ssh: 'user@12.34.56.78'
+    }
   },
 });
 ```
 
 ### Options
 
-#### options.separator
+#### options.url
 Type: `String`
-Default value: `',  '`
 
-A string value that is used to do something with whatever.
+The URL of your app. If you don't own a domain name yet, just pass something.anything to it and add this to your hosts file. You can test the app from your browser then.
 
-#### options.punctuation
+#### options.command
 Type: `String`
-Default value: `'.'`
 
-A string value that is used to do something else with whatever else.
+Command used to start the app. Mostly it'll be something like 'node app.js' but you can use forever or anything else. 
+
+#### options.port
+Type: `String`
+
+And your app is running on which port?
+
+#### options.path
+Type: `String`
+
+Absolute path to the app. This task takes this path, creates a folder named by the options.url in it and clone the git repository specified in options.git.  
+
+#### options.nginx
+Type: `String`
+
+Path to ngnix sites-enabled folder. Or basicaly any folder where nginx automatically load all conf files and use it in it's configuration. 
+
+#### options.git
+Type: `String`
+
+Git repository to clone. It should contain the app you want to run :)
+
+#### options.branch
+Type: `String`
+
+The branch which will be cloned from the git repository.
+
+#### options.ssh
+Type: `String`
+
+SSH server adress. Use ssh key to login instead of password.
 
 ### Usage Examples
 
@@ -65,25 +103,5 @@ grunt.initConfig({
 });
 ```
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  node_auto_deploy: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
-
-## Release History
-_(Nothing yet)_
