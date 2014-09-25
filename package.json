@@ -2,7 +2,7 @@
   "name": "grunt-node-auto-deploy",
   "description": "Automatic deployment of node apps via grunt to nginx-upstart server.",
   "version": "0.1.1",
-  "homepage": "https://github.com/petrkrulis.cz/grunt-node-auto-deploy",
+  "homepage": "https://github.com/petrkrulis/grunt-node-auto-deploy",
   "author": {
     "name": "Petr Krulis",
     "email": "hello@petrkrulis.cz",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/petrkrulis.cz/grunt-node-auto-deploy.git"
+    "url": "git://github.com/petrkrulis/grunt-node-auto-deploy.git"
   },
   "bugs": {
-    "url": "https://github.com/petrkrulis.cz/grunt-node-auto-deploy/issues"
+    "url": "https://github.com/petrkrulis/grunt-node-auto-deploy/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/petrkrulis.cz/grunt-node-auto-deploy/blob/master/LICENSE-MIT"
+      "url": "https://github.com/petrkrulis/grunt-node-auto-deploy/blob/master/LICENSE-MIT"
     }
   ],
   "engines": {
