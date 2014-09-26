@@ -24,7 +24,7 @@ module.exports = function(grunt) {
     },
 
     // Configuration to be run (and then tested).
-    node_auto_deploy: {
+    deploy: {
       default_options: {
         options: {
           url: 'test.test',

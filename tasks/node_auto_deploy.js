@@ -10,7 +10,7 @@
 
 module.exports = function(grunt) {
 
-  grunt.registerMultiTask('node_auto_deploy', 'Automatic deployment of your node apps via grunt to nginx-upstart server.', function() {
+  grunt.registerMultiTask('deploy', 'Automatic deployment of your node apps via grunt to nginx-upstart server.', function() {
     var options = this.options();
 
     var deploy = require('../lib/deploy');

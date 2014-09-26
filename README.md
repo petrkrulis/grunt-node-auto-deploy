@@ -30,7 +30,7 @@ In your project's Gruntfile, add a section named `node_auto_deploy` to the data 
 
 ```js
 grunt.initConfig({
-  node_auto_deploy: {
+  deploy: {
     options: {
       url: 'petrkrulis.cz',
       command: 'node server.js',
@@ -39,7 +39,10 @@ grunt.initConfig({
       nginx: '/etc/nginx/sites-enabled',
       git: 'git://github.com/petrkrulis.cz/grunt-node-auto-deploy.git',
       branch: 'master',
-      ssh: 'user@12.34.56.78'
+      ssh: 'user@12.34.56.78',
+      then: [
+        'grunt build'
+      ]
     }
   },
 });
@@ -86,6 +89,11 @@ The branch which will be cloned from the git repository.
 Type: `String`
 
 SSH server adress. Use ssh key to login instead of password.
+
+#### options.then
+Type: `Array`
+
+It's an array of commands executed after successful deploy and npm install and before start command. Useful as hell if you dont want to include distribution files to git repository. You can easily build them on server, just include all necessary packages in dependecies (not only in devDependencies). If you are going to use fire grunt tasks via ssh, you have to add the grunt bin path to $PATH in the .bashrc file (add it to the top of the file!).    
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
