@@ -16,10 +16,10 @@ module.exports = function(grunt) {
     var deploy = require('../lib/deploy');
     
     // Print deploying message.
-    console.log('Deploying ' + options.branch + ' ' + 'to ' + options.server + ':' + options.path + '/' + options.name);
+    console.log('Deploying ' + options.branch + ' ' + 'to ' + options.ssh + ':' + options.path + '/' + options.url);
     
     // Run deployment
-    deploy.run(settings);
+    deploy.run(options);
     
     // Print a success message.
     grunt.log.writeln('Deployed');

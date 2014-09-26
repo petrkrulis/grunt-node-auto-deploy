@@ -21,7 +21,7 @@ module.exports = function(grunt) {
       options: {
         jshintrc: '.jshintrc'
       }
-    }
+    },
 
     // Configuration to be run (and then tested).
     node_auto_deploy: {
@@ -34,7 +34,10 @@ module.exports = function(grunt) {
           nginx: '/etc/nginx/sites-enabled',
           git: 'https://petrkrulis@bitbucket.org/petrkrulis/deploy-test.git',
           branch: 'master',
-          ssh: 'root@nodejs.droplet'
+          ssh: 'root@nodejs.droplet',
+          then: [
+            'grunt post'
+          ]
         }
       },
     }
