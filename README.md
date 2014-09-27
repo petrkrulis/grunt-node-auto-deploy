@@ -23,7 +23,7 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-node-auto-deploy');
 ```
 
-## The "node_auto_deploy" task
+## The "deploy" task
 
 ### Overview
 In your project's Gruntfile, add a section named `node_auto_deploy` to the data object passed into `grunt.initConfig()`.
