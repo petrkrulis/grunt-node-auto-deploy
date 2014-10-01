@@ -11,6 +11,9 @@ The task connects to your server via SSH (only ssh key supported now, password f
 ### Dependencies
 This grunt task requires you to have linux server with upstart (ubuntu tested) running nginx, nodejs, npm and git.
 
+### Issues
+Please report all issues you may find. Do it preferably at https://github.com/petrkrulis/grunt-node-auto-deploy/issues. It'll be very helpful.
+
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
 

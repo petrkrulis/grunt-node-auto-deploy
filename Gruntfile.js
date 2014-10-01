@@ -27,9 +27,9 @@ module.exports = function(grunt) {
     node_auto_deploy: {
       default_options: {
         options: {
-          url: 'test.test',
+          url: 'gruntnodeautodeploy.test',
           command: 'node server.js',
-          port: '8081',
+          port: '8070',
           path: '/var/www/sites',
           nginx: '/etc/nginx/sites-enabled',
           git: 'https://petrkrulis@bitbucket.org/petrkrulis/deploy-test.git',
