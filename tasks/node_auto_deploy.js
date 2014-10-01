@@ -12,16 +12,12 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('node_auto_deploy', 'Automatic deployment of your node apps via grunt to nginx-upstart server.', function() {
     var options = this.options();
-
     var deploy = require('../lib/deploy');
     
     // Print deploying message.
-    console.log('Deploying ' + options.branch + ' ' + 'to ' + options.ssh + ':' + options.path + '/' + options.url);
+    grunt.log.writeln('Deploying ' + options.branch + ' ' + 'to ' + options.ssh + ':' + options.path + '/' + options.url + '\n');
     
     // Run deployment
-    deploy.run(options);
-    
-    // Print a success message.
-    grunt.log.writeln('Deployed');
+    deploy.run(options, this.async(), grunt);
   });
 };

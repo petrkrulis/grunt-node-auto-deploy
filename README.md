@@ -1,12 +1,15 @@
 # grunt-node-auto-deploy
 
-> Automatic deployment of your node apps via grunt to nginx-upstart server.
+Automatic deployment of your node apps via grunt to nginx-upstart server. 
 
 ### About
-It's based on node-deploy package. I rewrote it to use grunt. There is also no need to run init before first deployment. And upstart script/ngninx conf file don't need to be a part of git repository since they are created in ssh session. 
+This version had been completely rewritten and should work really well. Highly inspired by node-deploy package.
+
+### What it does
+The task connects to your server via SSH (only ssh key supported now, password functionality will be added very soon) and writes nginx & upstart configuration files. Your app starts on boot a runs as a service then (it restart after crash etc). Application is cloned or pulled from it's git repository (don't forget to commit before deployment). When the app is cloned/pulled, task runs npm install together with optional commands like grunt tasks to build distribution files which are not included in git etc. Then it starts nginx :)
 
 ### Dependencies
-This grunt task requires you to have linux with upstart (ubuntu tested) server running nginx, nodejs, npm and git.
+This grunt task requires you to have linux server with upstart (ubuntu tested) running nginx, nodejs, npm and git.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
@@ -93,7 +96,7 @@ SSH server adress. Use ssh key to login instead of password.
 #### options.then
 Type: `Array`
 
-It's an array of commands executed after successful deploy and npm install and before start command. Useful as hell if you dont want to include distribution files to git repository. You can easily build them on server, just include all necessary packages in dependecies (not only in devDependencies). If you are going to use fire grunt tasks via ssh, you have to add the grunt bin path to $PATH in the .bashrc file (add it to the top of the file!).    
+It's an array of commands executed after successful deploy and npm install and before start command. Useful as hell if you dont want to include distribution files to git repository. You can easily build them on server, just include all necessary packages in dependecies (not only in devDependencies - this runs in production environment).   
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
