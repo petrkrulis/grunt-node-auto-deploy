@@ -47,7 +47,7 @@ grunt.initConfig({
       branch: 'master',
       ssh: 'user@12.34.56.78',
       before: [
-        'grunt build'
+        'echo hello'
       ],
       then: [
         'grunt build'
