@@ -15,7 +15,7 @@ module.exports = function(grunt) {
     var deploy = require('../lib/deploy');
     
     // Print deploying message.
-    grunt.log.writeln('Deploying ' + options.branch + ' ' + 'to ' + options.ssh + ':' + options.path + '/' + options.url + '\n');
+    grunt.log.writeln('\nDeploying ' + options.branch + ' ' + 'to ' + options.ssh + ':' + options.path + '/' + options.url + '\n');
     
     // Run deployment
     deploy.run(options, this.async(), grunt);

@@ -34,7 +34,10 @@ module.exports = function(grunt) {
           nginx: '/etc/nginx/sites-enabled',
           git: 'https://petrkrulis@bitbucket.org/petrkrulis/deploy-test.git',
           branch: 'master',
-          ssh: 'root@nodejs.droplet',
+          ssh: 'root@nodejs',
+          before: [
+            'echo hello'
+          ],
           then: [
             'grunt post'
           ]
