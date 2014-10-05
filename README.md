@@ -15,6 +15,10 @@ This grunt task requires you to have linux server with upstart (ubuntu tested) r
 Please report all issues you may find. Do it preferably at https://github.com/petrkrulis/grunt-node-auto-deploy/issues. It'll be very helpful.
 
 ### Changelog
+
+#### 0.5.5
+- Removed unwanted console output
+
 #### 0.5.4
 - Added support for domain alias (so you can add www subdomain easily)
 - Fixed optional commands order
