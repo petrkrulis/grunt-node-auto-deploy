@@ -28,6 +28,7 @@ module.exports = function(grunt) {
       default_options: {
         options: {
           url: 'gruntnodeautodeploy.test',
+          alias: 'www.gruntnodeautodeploy.test',
           command: 'node server.js',
           port: '8070',
           path: '/var/www/sites',
@@ -36,7 +37,9 @@ module.exports = function(grunt) {
           branch: 'master',
           ssh: 'root@nodejs',
           before: [
-            'echo hello'
+            'echo hello',
+            'echo hello2',
+            'echo hello3'
           ],
           then: [
             'grunt post'

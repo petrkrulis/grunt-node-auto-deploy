@@ -14,6 +14,11 @@ This grunt task requires you to have linux server with upstart (ubuntu tested) r
 ### Issues
 Please report all issues you may find. Do it preferably at https://github.com/petrkrulis/grunt-node-auto-deploy/issues. It'll be very helpful.
 
+### Changelog
+#### 0.5.4
+- Added support for domain alias (so you can add www subdomain easily)
+- Fixed optional commands order
+
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
 
@@ -39,6 +44,7 @@ grunt.initConfig({
   node_auto_deploy: {
     options: {
       url: 'petrkrulis.cz',
+      alias: 'www.petrkrulis.cz',
       command: 'node server.js',
       port: '8081',
       path: '/var/www/sites',
@@ -63,6 +69,11 @@ grunt.initConfig({
 Type: `String`
 
 The URL of your app. If you don't own a domain name yet, just pass example.com to it and add that domain to your hosts file. You can test the app from the browser then.
+
+#### options.alias
+Type: `String` or `Array` (optional)
+
+Alias is optional. Use it when you need for example point a www subdomain to your app.
 
 #### options.command
 Type: `String`
