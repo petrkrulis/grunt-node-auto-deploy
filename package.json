@@ -1,7 +1,7 @@
 {
   "name": "grunt-node-auto-deploy",
   "description": "Automatic deployment of node apps via grunt to nginx-upstart server.",
-  "version": "0.5.5",
+  "version": "0.5.8",
   "homepage": "https://github.com/petrkrulis/grunt-node-auto-deploy",
   "author": {
     "name": "Petr Krulis",
