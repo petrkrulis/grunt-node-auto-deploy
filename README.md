@@ -13,7 +13,10 @@ Please report all issues you may find. Do it preferably at https://github.com/pe
 
 ### Changelog
 
-#### 0.5.9
+#### 0.6.1
+- Fixed fatal bug
+
+#### 0.6.0
 - Conf property
 - Alias is now a redirect instead of standalone server
 
