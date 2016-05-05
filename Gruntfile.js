@@ -28,7 +28,8 @@ module.exports = function(grunt) {
       default_options: {
         options: {
           url: 'gruntnodeautodeploy.test',
-          alias: 'www.gruntnodeautodeploy.test',
+          alias: [ 'www.gruntnodeautodeploy.test', 'alias.gruntnodeautodeploy.test' ],
+          conf: true,
           command: 'node server.js',
           port: '8070',
           path: '/var/www/sites',

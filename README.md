@@ -13,6 +13,10 @@ Please report all issues you may find. Do it preferably at https://github.com/pe
 
 ### Changelog
 
+#### 0.5.9
+- Conf property
+- Alias is now a redirect instead of standalone server
+
 #### 0.5.8
 - Properly close SSH connection after deployment
 
@@ -48,7 +52,8 @@ grunt.initConfig({
   node_auto_deploy: {
     options: {
       url: 'petrkrulis.cz',
-      alias: 'www.petrkrulis.cz',
+      alias: ['www.petrkrulis.cz', 'alias.petrkrulis.cz'],
+      conf: true,
       command: 'node server.js',
       port: '8081',
       path: '/var/www/sites',
@@ -77,7 +82,12 @@ The URL of your app. If you don't own a domain name yet, just pass example.com t
 #### options.alias
 Type: `String` or `Array` (optional)
 
-Alias is optional. Use it when you need for example point a www subdomain to your app.
+Alias is optional. Use it to redirect for example a www subdomain to your app.
+
+#### options.conf
+Type: `Boolean` (optional)
+
+Whether to upload ngnix configuration files. Default value is true (will be uploaded). If you need to manage conf files by yourself, let the plugin know not to upload them. 
 
 #### options.command
 Type: `String`
@@ -87,7 +97,7 @@ Command used to start the app. Mostly it'll be something like 'node app.js' but 
 #### options.port
 Type: `String`
 
-And your app is running on which port?
+NodeJS application port (where the server is listening for connections).
 
 #### options.path
 Type: `String`
@@ -112,7 +122,7 @@ The branch which will be cloned from the git repository.
 #### options.ssh
 Type: `String`
 
-SSH server adress. Use ssh key to login instead of password. I decided not to add support for password access. It's insecure and slow, you would need to type it (you don't want to store the password in probably public gruntfile).
+SSH server adress. Use ssh key to login instead of password. I decided not to add support for password access. It's insecure and slow and you would need to type itevery time (you don't want to store the password in a gruntfile).
 
 #### options.before
 Type: `Array` (optional)
