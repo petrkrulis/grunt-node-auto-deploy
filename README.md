@@ -13,6 +13,9 @@ Please report all issues you may find. Do it preferably at https://github.com/pe
 
 ### Changelog
 
+#### 0.6.3
+- updated dependencies (mainly grunt 1.x.x)
+
 #### 0.6.2
 - /etc/init scripts are saved to the /etc/init/apps subfolder
 
