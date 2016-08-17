@@ -13,6 +13,9 @@ Please report all issues you may find. Do it preferably at https://github.com/pe
 
 ### Changelog
 
+#### 0.6.4
+- fixed start/stop application in apps subfolder
+
 #### 0.6.3
 - updated dependencies (mainly grunt 1.x.x)
 
