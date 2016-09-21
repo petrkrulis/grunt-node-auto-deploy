@@ -13,6 +13,13 @@ Please report all issues you may find. Do it preferably at https://github.com/pe
 
 ### Changelog
 
+#### 1.0.0
+- now using pm2 instead upstart
+- custom nginx conf file
+- able to obtain letsencrypt certs
+- able to use only static web (no node app)
+
+
 #### 0.6.4
 - fixed start/stop application in apps subfolder
 
@@ -40,7 +47,7 @@ Please report all issues you may find. Do it preferably at https://github.com/pe
 - Fixed optional commands order
 
 ## Getting Started
-This plugin requires Grunt `~0.4.5`
+This plugin requires Grunt `>=0.4.5`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
@@ -64,12 +71,17 @@ grunt.initConfig({
   node_auto_deploy: {
     options: {
       url: 'petrkrulis.cz',
-      alias: ['www.petrkrulis.cz', 'alias.petrkrulis.cz'],
-      conf: true,
-      command: 'node server.js',
+      alias: ['www.petrkrulis.cz', 'alias.petrkrulis.cz'], // can be string or array
+      getSSLCerts: true, (will call 'letsencrypt certonly -a webroot --agree-tos --renew-by-default --webroot-path=/var/www/html -d domain')
+      conf: true, // set to false to not upload nginx conf file
+      useNode: settings.useNode, // use statis web or nginx proxy to node app
+      command: 'node server.js', // discontinued
+      index: 'server.js' // nodejs app index
+      name: 'petrkrulis-web', // pm2 app name
       port: '8081',
       path: '/var/www/sites',
       nginx: '/etc/nginx/sites-enabled',
+      nginxConf: 'nginx.conf' // nginx custom conf file to use
       git: 'git://github.com/petrkrulis.cz/grunt-node-auto-deploy.git',
       branch: 'master',
       ssh: 'user@12.34.56.78',
