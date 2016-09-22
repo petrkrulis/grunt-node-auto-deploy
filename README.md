@@ -3,22 +3,26 @@
 Automatic deployment of your node apps via grunt to ubuntu server using nginx and upstart. 
 
 ### About
-The task connects to your server via SSH (via ssh key only) and writes nginx & upstart configuration files. Your app starts on boot a runs as a service. Application is cloned or pulled from it's remote git repository. When the app is cloned/pulled, task runs npm install together with optional commands like grunt tasks to build distribution files. Then it reloads nginx :)
+The task connects to your server via SSH (via ssh key only) and writes nginx configuration files. Your app starts on boot a runs as a service via pm2. Application is cloned from it's remote git repository. When the app is cloned, task runs npm install together with optional commands like grunt tasks to build distribution files. Then it reloads nginx.
 
 ### Dependencies
-This grunt task requires you to have linux server with upstart (ubuntu tested) running nginx, nodejs, npm and git.
+This grunt task requires you to have linux server (ubuntu 16 tested) running nginx, nodejs, npm, and git.
 
 ### Issues
 Please report all issues you may find. Do it preferably at https://github.com/petrkrulis/grunt-node-auto-deploy/issues. It'll be very helpful.
 
 ### Changelog
 
+
+#### 1.0.1
+- almost zero downtime (fetch & install in temporary folder)
+- dont obtain SSL certificates every time (only when they are not present)
+
 #### 1.0.0
 - now using pm2 instead upstart
 - custom nginx conf file
 - able to obtain letsencrypt certs
 - able to use only static web (no node app)
-
 
 #### 0.6.4
 - fixed start/stop application in apps subfolder
