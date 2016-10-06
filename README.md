@@ -14,6 +14,9 @@ Please report all issues you may find. Do it preferably at https://github.com/pe
 ### Changelog
 
 
+#### 1.0.2
+- empty aliases fix
+
 #### 1.0.1
 - almost zero downtime (fetch & install in temporary folder)
 - dont obtain SSL certificates every time (only when they are not present)
